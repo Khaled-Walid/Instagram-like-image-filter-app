@@ -83,11 +83,14 @@ export const ImageFilter: React.FC = () => {
     <>
       <div className="header">
         <input type="file" onChange={handleFileSelect} />
-        <select onChange={handleFilterSelect} value={filter}>
-          <option value="vintage">Vintage</option>
-          <option value="sepia">Sepia</option>
-          <option value="blur">Blur</option>
-        </select>
+        <div>
+          <label>Filter: </label>
+          <select onChange={handleFilterSelect} value={filter}>
+            <option value="vintage">Vintage</option>
+            <option value="sepia">Sepia</option>
+            <option value="blur">Blur</option>
+          </select>
+        </div>
         <input
           type="range"
           min="0"
