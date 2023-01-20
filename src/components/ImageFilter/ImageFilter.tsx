@@ -77,6 +77,9 @@ export const ImageFilter: React.FC = () => {
     }
     const canvas = new fabric.Canvas(canvasRef.current);
     canvas.add(image);
+    return () => {
+      canvas.dispose();
+    };
   }, [image]);
 
   return (
