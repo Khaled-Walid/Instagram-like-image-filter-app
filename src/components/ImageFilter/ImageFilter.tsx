@@ -85,7 +85,11 @@ export const ImageFilter: React.FC = () => {
   return (
     <>
       <div className="header">
-        <input type="file" onChange={handleFileSelect} />
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          onChange={handleFileSelect}
+        />
         <div>
           <label>Filter: </label>
           <select onChange={handleFilterSelect} value={filter}>
