@@ -72,9 +72,11 @@ export const ImageFilter: React.FC = () => {
   }, [filter, filterStrength, image]);
 
   useEffect(() => {
-    if (image == null) {
+    if (image == null || canvasRef.current == null) {
       return;
     }
+    canvasRef.current.width = window.innerWidth * 0.9;
+    canvasRef.current.height = window.innerHeight * 0.8;
     const canvas = new fabric.Canvas(canvasRef.current);
     canvas.add(image);
     return () => {
@@ -112,9 +114,9 @@ export const ImageFilter: React.FC = () => {
         <button data-format="jpeg" onClick={handleDownload}>
           Download as JPEG
         </button>
-      </div>{' '}
+      </div>
       <div className="container">
-        <canvas ref={canvasRef} width={'1000px'} height={'1000px'} />
+        <canvas ref={canvasRef} />
       </div>
     </>
   );
