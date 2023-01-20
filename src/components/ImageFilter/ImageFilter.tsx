@@ -8,7 +8,10 @@ export const ImageFilter: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const file = e.target.files![0];
+    if (e.target.files == null) {
+      return;
+    }
+    const file = e.target.files[0];
     fabric.Image.fromURL(URL.createObjectURL(file), (img) => {
       setImage(img);
     });
